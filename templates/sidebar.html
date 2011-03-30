@@ -1,0 +1,53 @@
+{% load beersocial %}
+{% load markup %}
+{% block sidebar %}
+    {% comment %}
+    <div id="search-3" class="widget widget_search">
+        <script type="text/javascript">
+            function doClear(theText) {
+            if (theText.value == theText.defaultValue) {
+                theText.value = ""
+                }
+            }
+        </script> 
+    
+           <div id="search">
+               <form method="get" id="search-form" action="http://www.press75.com/themes/side-blog/">
+               <input type="text" name="s" id="s" value="Search" onfocus="doClear(this)" /> 
+               <input type="submit" id="search-submit" value="" />
+               </form>
+        </div> <!-- search -->
+    </div>
+    <div id="categoryposts-3" class="widget widget_categoryposts">      
+        <div class="cat-post-item">
+            <a class="comments-link comments-link-side" href="http://www.press75.com/themes/side-blog/this-is-a-sample-post-2/#comments" title="Comments">2</a> 
+            
+            <h2 class="post-title"><a href="http://www.press75.com/themes/side-blog/this-is-a-sample-post-2/" rel="bookmark" title="This is a Sample Post">This is a Sample Post</a></h2> 
+            <p class="post-meta">Posted on July 23, 2010</p> 
+            
+                        <div class="post-thumbnail-side"> 
+                <a class="thumbnail-frame-side" href="http://www.press75.com/themes/side-blog/this-is-a-sample-post-2/" title="This is a Sample Post"><!-- nothing to see here --></a> 
+                <a href="http://www.press75.com/themes/side-blog/this-is-a-sample-post-2/" rel="bookmark" title="This is a Sample Post"><img width="75" height="75" src="http://www.press75.com/themes/side-blog/files/2010/07/subway-75x75.jpg" class="attachment-sidebar wp-post-image" alt="Subway" title="subway" /></a> 
+            </div>
+                        
+            <div class="cat-post-content"> 
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nec facilisis elit. Ut imperdiet, mi sed laoreet &#8230;</p> 
+ 
+                            </div>
+        </div>
+            
+    </div>
+    {% endcomment %}
+    {% get_current_theme as theme %} 
+    <div id="text-3" class="widget widget_text">
+    <span>{{ theme.start_date }} - {{ theme.end_date }}</span>
+    <h1>Current theme:</h1>
+    <div class="textwidget">
+        <h3>{{ theme.name }}</h3> 
+        <p>{{ theme.description|markdown }}<p>
+    </div> 
+    </div>
+    <div id="p75-sidebar-ads-2" class="widget p75_sidebar_ads"> 
+        <a class='simple-ads' href='http://www.press75.com/'><img class='sidebar-ad' src='http://www.press75.com/images/125.jpg' alt='Advertisement' /></a><a class='simple-ads' href='http://www.press75.com/'><img class='sidebar-ad' src='http://www.press75.com/images/125.jpg' alt='Advertisement' /></a><a class='simple-ads' href='http://www.press75.com/'><img class='sidebar-ad' src='http://www.press75.com/images/125.jpg' alt='Advertisement' /></a><a class='simple-ads' href='http://www.press75.com/'><img class='sidebar-ad' src='http://www.press75.com/images/125.jpg' alt='Advertisement' /></a>
+    </div>      
+{% endblock sidebar %}    

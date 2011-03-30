@@ -1,0 +1,22 @@
+{% load oembed_tags %}
+{% load beersocial %}
+
+{% oembed %}
+<div id="{{ post.id }}" class="post-item"> 
+    {# <a class="comments-link" href="{{ post.get_absolute_url }}/#comments" title="Comments">3</a> #}
+    <h2 class="post-title"><a href="{{ post.get_absolute_url }}" rel="bookmark" title="{{ post.title }}">{{ post.title }}</a></h2> 
+    
+    <div class="post-30 post type-post status-publish format-standard hentry category-example-posts category-sample-category category-sample-posts category-samples">
+        {% for embed in post.content|extract_oembeds:"photo" %}
+        <a href="{{ embed.url }}" class="fancy" title="{{ embed.title }}"><img width="250" height="250" src="{{ embed.url }}" class="attachment-post-thumbnail wp-post-image" alt="Broken" title="{{ embed.title }}" /></a> 
+        {% endfor %}
+        <h3>{{ post.content|strip_oembeds|twitterfy }} {# <a href="{{ post.get_absolute_url }}" class="more-link">&#8230; Continue Reading</a> #}</h3>
+        {% if post.tweet_id %}
+            <p class="post-meta">Posted on <a href="{{ post.tweet_url }}">{{ post.pub_date|date:"D d M Y" }}</a> by <a href="{{ post.author_url }}">{{ post.post_author }}</a></p> 
+        {% else %} 
+            <p class="post-meta">Posted on {{ post.pub_date|date:"D d M Y" }} by {{ post.author }}</p> 
+        {% endif %}
+    </div> 
+</div>
+{% endoembed %} 
+<!-- post --> 

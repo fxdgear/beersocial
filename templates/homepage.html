@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load beersocial %}
+
+{% block content %}
+
+{% get_latest posts.Post 20 as recent_posts %}
+{% for post in recent_posts %}
+    {% render_content for post %}
+{% endfor %}
+<div id='paginate'>Pages ... 1 <a href="http://www.press75.com/themes/side-blog/page/2/">2</a> <a href="http://www.press75.com/themes/side-blog/page/2/" ></a>
+</div>
+
+{% endblock content %}
