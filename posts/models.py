@@ -10,7 +10,7 @@ class Post(models.Model):
     tweeter_id = models.BigIntegerField(blank=True, null=True)
     tweeter_profile_image = models.URLField(blank=True, null=True)
     tweet_id = models.BigIntegerField(blank=True, null=True)
-    pub_date = models.DateTimeField()
+    pub_date = models.DateTimeField(blank=True, null=True)
     
 
     beer = models.ForeignKey(Beer, blank=True, null=True)
