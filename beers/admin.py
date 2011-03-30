@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from socialbeers.beers.models import Beer, Brewery, BeerType
+from beersocial.beers.models import Beer, Brewery, BeerType
 
 class BeerAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
