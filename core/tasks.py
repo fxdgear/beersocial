@@ -6,10 +6,10 @@ from posts.models import Post
 from celery.decorators import periodic_task, task
 from celery.task.schedules import crontab
 
-@periodic_task(run_every=crontab(hour="*", minute="*", day_of_week="*")) 
+@periodic_task(run_every=crontab(hour="*", minute="*/5", day_of_week="*")) 
 def get_new_tweets():
     twitter = Twython()  
-    results = twitter.searchTwitter(q="#kubball, #lawrence")
+    results = twitter.searchTwitter(q="kubball")
 
     tweets = results['results']
     
@@ -18,9 +18,13 @@ def get_new_tweets():
         utcdate= datetime.datetime.fromtimestamp( utctimestamp, pytz.utc )
         tweet_date = utcdate.astimezone(pytz.timezone('US/Central'))
        
-        obj,created = Post.objects.get_or_create(tweeter_id=tweet['from_user_id'], 
-                                                 tweet_id=tweet['id'], 
-                                                 pub_date=tweet_date)
+        try:
+            obj,created = Post.objects.get_or_create(tweeter_id=tweet['from_user_id'], 
+                                                     tweet_id=tweet['id'], 
+                                                     pub_date=tweet_date)
+        except MultipleObjectsReturned:
+            created = False
+
 
         if created:
             obj.content=tweet['text']
