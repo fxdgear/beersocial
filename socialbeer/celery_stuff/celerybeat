@@ -5,10 +5,12 @@ CELERYD_CHDIR="/home/nick/code/python/beersocial/src/beersocial/socialbeer"
 export DJANGO_SETTINGS_MODULE="socialbeer.staging_settings"
 
 # Path to celeryd
-CELERYD="/home/nick/code/python/beersocial/src/beersocial/socialbeer/manage.py celeryd celeryd -v 2 -B -s celery -E -l INFO "
+CELERYD="/home/nick/code/python/beersocial/src/beersocial/socialbeer/manage.py celeryd -v 2 -B -s celery -E -l INFO "
 
 # Extra arguments to celerybeat
 CELERYBEAT_OPTS="--schedule=/var/run/celerybeat-schedule"
+
+CELERYD_MULTI="/home/nick/code/python/beersocial/"
 
 # Name of nodes to start, here we have a single node
 CELERYD_NODES="w1"
@@ -19,7 +21,7 @@ CELERYD_NODES="w1"
 CELERYD_OPTS="--time-limit 300 --concurrency=8"
 
 # Name of the celery config module.
-CELERY_CONFIG_MODULE="socialbeer.staging_settings"
+CELERY_CONFIG_MODULE="socialbeer.celeryconfig"
 
 # %n will be replaced with the nodename.
 CELERYD_LOG_FILE="/var/log/celery/%n.log"
