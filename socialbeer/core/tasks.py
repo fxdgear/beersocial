@@ -7,7 +7,7 @@ from django.conf import settings
 
 from socialbeer.posts.models import Post
 from celery.decorators import periodic_task
-from celery.task.schedules import crontab
+from celery.schedules import crontab
 
 @periodic_task(run_every=crontab(hour="*", minute="3/*", day_of_week="*")) 
 def get_new_tweets():
