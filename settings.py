@@ -133,7 +133,7 @@ INSTALLED_APPS = (
     'djkombu',
 )
 
-
+POSTS_PER_PAGE = 20
 
 
 # A sample logging configuration. The only tangible logging

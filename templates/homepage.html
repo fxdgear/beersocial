@@ -3,11 +3,22 @@
 
 {% block content %}
 
-{% get_latest posts.Post 20 as recent_posts %}
-{% for post in recent_posts %}
+{% for post in posts.object_list %}
     {% render_content for post %}
 {% endfor %}
-<div id='paginate'>Pages ... 1 <a href="http://www.press75.com/themes/side-blog/page/2/">2</a> <a href="http://www.press75.com/themes/side-blog/page/2/" ></a>
+
+<div id='paginate'>
+{% if posts.has_previous %}
+    <a href="?page={{ posts.previous_page_number }}">previous</a>
+{% endif %}
+
+<span class="current">
+    Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+</span>
+
+{% if posts.has_next %}
+    <a href="?page={{ posts.next_page_number }}">next</a>
+{% endif %}
 </div>
 
 {% endblock content %}
