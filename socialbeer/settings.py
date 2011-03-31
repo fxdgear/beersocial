@@ -136,8 +136,8 @@ INSTALLED_APPS = (
 
 POSTS_PER_PAGE = 20
 TWITTER_SEARCH_TERMS = [
-    "#beersocal", 
-    "beersocal", 
+    "#socialbeer", 
+    "socialbeer", 
     "#beerme", 
     "beerme", 
     "kubball",

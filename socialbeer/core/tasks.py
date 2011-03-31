@@ -1,12 +1,14 @@
 from twython import Twython 
 import email, datetime
 import pytz
+from textwrap import TextWrapper
+
 
 from django.core.exceptions import MultipleObjectsReturned
 from django.conf import settings
 
 from socialbeer.posts.models import Post
-from celery.decorators import periodic_task
+from celery.decorators import periodic_task, task
 from celery.schedules import crontab
 
 @periodic_task(run_every=crontab(hour="*", minute="*", day_of_week="*")) 
@@ -37,3 +39,18 @@ def get_new_tweets():
             obj.pub_date=tweet_date
             obj.save()
         
+@task()
+def process_tweet(status, *args, **kwargs):
+    try:
+        obj,created = Post.objects.get_or_create(tweeter_id=status.user.id, tweet_id=status.id)
+    except MultipleObjectsReturned:
+        created=False
+    
+    if created:
+        obj.content=status.text
+        obj.tweeter_name=status.author.screen_name
+        obj.tweeter_profile_image=status.author.profile_image_url
+        obj.pub_date = status.created_at
+        obj.save()
+        
+    return True
