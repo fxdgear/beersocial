@@ -15,6 +15,8 @@ class Post(models.Model):
 
     beer = models.ForeignKey(Beer, blank=True, null=True)
 
+    status = models.BooleanField(default=True)
+
     class Meta:
         ordering = ["-pub_date"]
 
