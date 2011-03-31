@@ -1,0 +1,100 @@
+/*********************************************************************************************
+
+7.  Gravity Forms Styles  --------------  index.php, single.php, page.php
+
+*********************************************************************************************/
+.gfield {
+width: 570px;
+float: left;
+margin-bottom: 30px;
+}
+
+.gsection {
+width: 570px;
+float: left;
+}
+
+.gform_wrapper #gform_heading { 
+width: 570px;
+float: left;
+border-bottom:1px solid #CCCCCC !important;
+margin: 0 0 30px 0;
+}
+
+.gform_wrapper .top_label .gfield_label { 
+display:block;
+float:left; 
+padding-right:20px; 
+width: 100px; 
+margin: 5px 0px 4px !important; 
+}
+
+.gform_wrapper .gsection {
+border-bottom:1px solid #ccc !important;  
+}
+
+.gform_wrapper .gform_footer { 
+border-top: none !important;
+}
+
+.gform_wrapper input, .gform_wrapper textarea, .gform_wrapper select { 
+padding: 4px 6px !important; 
+background: #FFFFFF url(images/fields.jpg) top left repeat-x;
+border: 1px solid #CCCCCC;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 12px;
+line-height: 18px;
+color: #6D6D6D;
+float: left;
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+}
+
+.gform_wrapper .top_label input.large, .gform_wrapper .top_label select.large, .gform_wrapper .top_label textarea.textarea { 
+width: 434px !important; 
+padding: 5px 7px 5px 7px !important; 
+}
+
+.gform_wrapper .entry img, .gform_wrapper img.thumbnail { 
+padding: 0px !important; 
+border: 0px !important; 
+}
+
+ul.top_label .clear-multi { 
+clear: none !important; 
+}
+
+.gform_wrapper .gfield_checkbox, .gform_wrapper .gfield_radio { 
+margin-left: 120px !important; 
+margin-bottom: 0 !important;
+}
+
+.gform_wrapper .gfield_checkbox li, .gform_wrapper .gfield_radio li { 
+padding:3px 0 0 2px !important;
+line-height:1;
+width:auto;
+}
+
+img.ui-datepicker-trigger { 
+border: 0px; padding: 0px; 
+}
+
+.gform_wrapper .field_name_first input, .gform_wrapper .ginput_complex .ginput_left input{ width:90%!important}
+
+.gform_footer input.button {
+background: #303030;
+border: none;
+color: #FFFFFF;
+cursor: pointer;
+width: 135px;
+height: 30px;
+text-align: center;
+margin: 0 0 0 120px;
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+}
+
+.gform_footer input.button:hover {
+background: #3E3E3E;
+color: #FFFFFF;
+}
