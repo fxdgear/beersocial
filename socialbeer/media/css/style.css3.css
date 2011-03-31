@@ -1,0 +1,60 @@
+/********************************************************************************************* 
+
+CSS3 Elements Seperated to Maintain Validation
+
+*********************************************************************************************/
+#blog {
+-moz-border-radius: 6px;
+-webkit-border-radius: 6px;
+-moz-box-shadow: 0 0 4px #202020;
+-webkit-box-shadow: 0 0 4px #202020;
+}
+
+#main {
+-moz-border-radius: 6px;
+-webkit-border-radius: 6px;
+-moz-box-shadow: 0 0 4px #202020;
+-webkit-box-shadow: 0 0 4px #202020;
+}
+
+.menu li ul {
+-moz-border-radius: 6px;
+-webkit-border-radius: 6px;
+-moz-box-shadow: 0 0 4px #000;
+-webkit-box-shadow: 0 0 4px #000;
+}
+
+.menu {
+-moz-border-radius: 6px;
+-webkit-border-radius: 6px;
+-moz-box-shadow: inset 0 0 4px #000000;
+-webkit-box-shadow: inset 0 0 4px #000000;
+box-shadow: inset 0 0 4px #000000;
+}
+
+.wp-post-image, .avatar, .wp-caption {
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+-moz-box-shadow: inset 0 0 4px #A4A4A4;
+-webkit-box-shadow: inset 0 0 4px #A4A4A4;
+box-shadow: inset 0 0 4px #A4A4A4;
+}
+
+.wp-post-image:hover, 
+.comments-link:hover,
+.logo:hover,
+.sidebar-ad:hover {
+opacity: 0.8;
+}
+
+input#s,
+input#submit, 
+#author, 
+#email, 
+#url, 
+#comment,
+#comments-meta,
+ol.commentlist li div.reply {
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+}

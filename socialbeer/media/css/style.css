@@ -1,0 +1,707 @@
+/*********************************************************************************************
+
+Theme Name: Side Blog
+Theme URI: http://www.press75.com/
+Description: Designed by Jason Schuller
+Version: 1.1.6
+Author: Press75.com
+Author URI: http://www.press75.com/
+
+**********************************************************************************************
+
+Designed and Built by Jason Schuller - theSevenFive.com
+
+CSS, XHTML and Design Files are all Copyright 2007-2010 Circa75 Media, LLC
+
+Be inspired, but please don't steal :)
+
+**********************************************************************************************
+
+0.  CSS Reset  -------------------------  All Theme Files
+1.  Basic Setup  -----------------------  All Theme Files
+2.  Header & Menu Styles  --------------  header.php
+3.  Main Content Styles ----------------  index.php, single.php, page.php
+4.  Post Comment Styles ----------------  single.php, comments.php
+5.  Sidebar and Widgets  ---------------  sidebar.php
+6.  Footer Styles  ---------------------  footer.php
+7.  Gravity Forms Styles  --------------  style.gravity.css
+
+**********************************************************************************************/
+
+
+/********************************************************************************************* 
+
+0.  CSS Reset  -------------------------  All Theme Files
+
+*********************************************************************************************/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+margin: 0;
+padding: 0;
+}
+
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+fieldset, img {border: 0;}
+
+address, caption, cite, code, dfn, em, strong, th, var {
+font-style: normal;
+font-weight: normal;
+}
+
+ol, ul {list-style: none;}
+caption, th {text-align: left;}
+
+h1, h2, h3, h4, h5, h6 {
+font-size: 100%;
+font-weight: normal;
+}
+
+q:before, q:after {content: '';}
+abbr, acronym {border: 0;}
+
+
+/*********************************************************************************************
+
+1.  Basic Setup  -----------------------  All Theme Files
+
+*********************************************************************************************/
+body {
+background: #444444 url(images/bg.jpg) repeat fixed;
+width: auto;
+height: auto;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 12px;
+line-height: 18px;
+color: #979797;
+}
+
+#content {
+width: 960px;
+margin: 0px auto;
+}
+
+a:link, a:visited {
+color: #FFFFFF;
+text-decoration: none;
+}
+
+a:hover {
+color: #979797;
+}
+
+h1 {
+font-size: 20px;
+margin: 0 0 2px 0;
+}
+
+h2 {
+font-size: 18px;
+margin: 0 0 2px 0;
+}
+
+h3 {
+font-size: 16px;
+margin: 0 0 2px 0;
+}
+
+h4 {
+font-size: 14px;
+margin: 0 0 0 0;
+}
+
+blockquote {
+border-left: 1px solid #999999;
+padding: 0 0 0 15px;
+font-style: italic;
+font-weight: bold;
+}
+
+strong {font-weight: bold;}
+
+abbr,acronym {
+border-bottom: 1px dotted;
+cursor: help;
+} 
+
+em {font-style: italic;}
+ol,ul {margin: 0;}
+ol li {list-style: decimal outside;}
+ul li {list-style: none;}
+
+th,td {
+border: 1px solid;
+padding: 8px;
+}
+
+th {
+font-weight:bold;
+text-align:center;
+}
+
+caption {
+margin-bottom: 8px;
+text-align: center;
+}
+
+p,fieldset,table {margin-bottom: 15px;}
+a:link, a:visited {text-decoration: none;}
+
+:focus {
+outline: 0;
+}
+
+.alignleft {
+float: left;
+}
+
+.alignright {
+float: right;
+}
+
+
+/*********************************************************************************************
+
+2.  Header & Menu Styles  --------------  header.php
+
+*********************************************************************************************/
+#header {
+width: 960px;
+float: left;
+padding: 30px 0 30px 0;
+}
+
+#header h1 {
+font-size: 36px;
+margin-bottom: 5px;
+}
+
+#logo {
+width: 460px;
+float: left;
+}
+
+#navigation {
+width: 500px;
+float: left;
+padding: 23px 0 0 0;
+}
+
+.menu, .menu * { /* SuperFish Menu Styles */
+margin: 0;
+padding: 0;
+list-style: none;
+}
+
+.menu {
+background: #202020;
+font-size: 16px;
+float: right;
+padding: 10px 20px 12px 0;
+}
+
+.menu a {
+display: block;
+position: relative;
+}
+
+.menu ul li {
+width: 100%;
+}
+
+.menu ul {
+position: absolute;
+top: -15000px;
+width: 160px; /* Left Offset of Sub-Menus Need to Match */
+}
+
+.menu li:hover ul, 
+.menu li.sfHover ul {
+left: -15px;
+top: 22px; /* Match Top UL List Item Height */
+z-index: 10000;
+}
+
+ul.menu li:hover li ul, 
+ul.menu li.sfHover li ul {
+top: -15000px;
+}
+
+ul.menu li li:hover ul, 
+ul.menu li li.sfHover ul {
+left: 160px; /* Match ul width. */
+top: 0;
+}
+
+ul.menu li li:hover li ul, 
+ul.menu li li.sfHover li ul {
+top: -15000px;
+}
+
+ul.menu li li li:hover ul, 
+ul.menu li li li.sfHover ul {
+left: 160px; /* Match ul Width. */
+top: 0;
+}
+
+.menu li {
+float: left;
+position: relative;
+margin: 0 0 0 20px;
+font-weight: bold;
+}
+
+.menu li:hover {
+visibility: inherit; /* Fixes IE7 Sticky Bug */
+}
+
+.menu li ul {
+background: #FFFFFF;
+font-size: 12px;
+width: 125px;
+padding: 10px 40px 10px 15px;
+}
+
+.menu li ul a:link, .menu li ul a:visited {
+color: #6D6D6D;
+}
+
+.menu li li {
+background: none;
+margin: 0 0 0 0;
+padding: 0 0 0 0;
+text-transform: none;
+}
+
+.menu li li ul {
+background: #FFFFFF;
+margin: -10px 0 0 -50px;
+}
+
+
+/*********************************************************************************************
+
+3.  Main Content Styles ----------------  index.php, single.php, page.php
+
+*********************************************************************************************/
+#blog {
+background: #EFEFEF;
+width: 960px;
+float: left;
+margin: 0 0 0 0;
+}
+
+#main {
+background: #FFFFFF;
+color: #6D6D6D;
+width: 570px;
+float: left;
+padding: 30px 30px 15px 35px;
+}
+
+#main h1, #main h2, #main h3, #main h4 {
+font-weight: bold;
+}
+
+#main h2 a {
+color: #5E5E5F;
+}
+
+#main h2 a:hover {
+background: #EFEFEF;
+}
+
+#main a {
+text-decoration: none;
+font-weight: bold;
+}
+
+.comments-link {
+background: url(images/comments.png) 0 0;
+width: 39px;
+height: 29px;
+float: right;
+text-align: center;
+padding: 9px 0 0 4px;
+font-size: 16px;
+font-weight: bold;
+color: #6D6D6D;
+}
+
+a.comments-link {
+color: #6D6D6D;
+}
+
+.wp-post-image {
+background: #EFEFEF;
+float: left;
+margin: 1px 25px 20px 0;
+padding: 8px;
+}
+
+#main p, #main ul {
+margin: 0 0 15px 0;
+}
+
+.post-item {
+width: 100%;
+float: left;
+}
+
+.post {
+border-bottom: 1px solid #CCCCCC;
+width: 100%;
+float: left;
+margin: 0 0 25px 0;
+padding: 0 0 10px 0;
+}
+
+.post a, .page a {
+font-weight: bold;
+color: #6D6D6D;
+}
+
+.post a:hover, .page a:hover {
+background: #EFEFEF;
+}
+
+.post ul {
+margin: 0 0 20px 0;
+}
+
+.post ul li {
+background: url(images/bullet.png) top left no-repeat;
+margin: 0 0 5px 0;
+padding: 0 0 0 15px;
+}
+
+.post ol {
+margin: 0 0 20px 0;
+}
+
+.post ol li {
+margin: 0 0 5px 15px;
+}
+
+#paginate {
+margin: 0 0 10px 0;
+}
+
+#paginate a {
+color: #6D6D6D;
+}
+
+#paginate a:hover {
+background: #EFEFEF;
+}
+
+img.centered {
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+img.alignright {
+padding: 5px;
+margin: 0 0 2px 15px;
+}
+
+img.alignleft {
+padding: 5px;
+margin: 0 15px 2px 0;
+}
+
+.wp-caption {
+background: #EFEFEF;
+text-align: center;
+padding: 8px 4px 0 4px;
+margin: 0 0 20px 20px;
+}
+
+.wp-caption img {
+padding: 0;
+margin: 0 0 12px 0;
+}
+
+.wp-caption .wp-caption-text, .wp-caption .wp-caption-dd {
+font-size: 12px !important;
+text-align: center; 
+margin: 0;
+padding: 0;
+}
+
+
+/*********************************************************************************************
+
+4.  Post Comment Styles ----------------  single.php, comments.php
+
+*********************************************************************************************/
+#comments {
+width: 570px;
+}
+
+#comments p a {
+color: #6D6D6D;
+text-decoration: underline;
+}
+
+#comments p {
+margin: 15px 0 0 0;
+}
+
+#comments-meta {
+background: #EBEBEB;
+border: 1px solid #CCCCCC;
+line-height: 1;
+width: 618px;
+height: 32px;
+float: left;
+margin: 0 20px 20px 0;
+}
+
+#comments-meta p {
+margin: 0;
+padding: 9px 10px 0 10px;
+}
+
+#comments ol li {
+list-style: none;
+}
+
+ol.commentlist li {
+margin: 0 0 20px 0;
+padding: 0 0 20px 0;
+border-bottom: 1px solid #CCCCCC;
+}
+
+ol.commentlist li.alt {
+margin: 0 0 20px 0;
+padding: 0 0 20px 0;
+border-bottom: 1px solid #CCCCCC;
+}
+
+ol.commentlist li ul.children { 
+list-style: none; 
+text-indent: 0; 
+}
+
+ol.commentlist li ul.children li {
+border: none;
+padding: 25px 0 0 25px;
+}
+
+ol.commentlist li ul.children li.alt {
+border: none;
+padding: 25px 0 0 25px;
+}
+
+ol.commentlist li ul.children li.depth-2 {margin: 0;}
+ol.commentlist li ul.children li.depth-3 {margin: 0;}
+ol.commentlist li ul.children li.depth-4 {margin: 0;}
+ol.commentlist li ul.children li.depth-5 {margin: 0;}
+
+ol.commentlist li div.reply {
+background: #303030;
+border: none;
+cursor: pointer;
+font-size: 9px;
+width: 40px;
+padding: 2px 0 2px 0;
+text-align: center;
+margin: 15px 0 0 0;
+}
+
+ol.commentlist li div.reply:hover {
+background: #3E3E3E;
+}
+
+.comment-author, .vcard {
+font-size: 14px;
+font-weight: bold;
+}
+
+.comment-author a, .comment-meta a {
+color: #6D6D6D;
+}
+
+.comment-meta {
+font-size: 10px;
+font-weight: normal;
+}
+
+.avatar {
+background: #EFEFEF;
+float: right;
+margin: 2px 0 30px 30px;
+padding: 8px;
+}
+
+#respond {
+width: 100%;
+padding: 10px 0 0 0;
+}
+
+cite {
+font-weight: bold;
+}
+
+.comment-meta a {
+color: #6D6D6D;
+text-decoration: underline;
+}
+
+.cancel-comment-reply a {
+display: none;
+}
+
+#author, #email, #url {
+width: 200px;
+margin-right: 10px;
+}
+
+#author, #email, #url, #comment {
+background: #FFFFFF url(images/fields.jpg) top left repeat-x;
+border: 1px solid #CCCCCC;
+padding: 6px 4px 6px 4px;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 12px;
+line-height: 18px;
+color: #6D6D6D;
+}
+
+#comment {
+width: 96%;
+max-width: 610px;
+padding: 8px 10px 8px 10px;
+}
+
+input#submit {
+background: #303030;
+border: none;
+color: #FFFFFF;
+cursor: pointer;
+width: 135px;
+height: 30px;
+text-align: center;
+}
+
+input#submit:hover {
+background: #3E3E3E;
+color: #FFFFFF;
+}
+
+
+/*********************************************************************************************
+
+5.  Sidebar and Widgets  ---------------  sidebar.php
+
+*********************************************************************************************/
+#sidebar {
+color: #6D6D6D;
+width: 320px;
+float: left;
+padding: 30px 0 10px 0;
+}
+
+#sidebar a {
+color: #6D6D6D;
+text-decoration: none;
+}
+
+#sidebar h2, #sidebar h3 {
+font-size: 14px;
+}
+
+#sidebar h2 a {
+color: #5E5E5F;
+}
+
+#sidebar h2 a:hover {
+background: #FFFFFF;
+}
+
+#sidebar h1, #sidebar h2, #sidebar h3, #sidebar h4 {
+font-weight: bold;
+} 
+
+.comments-link-side {
+background: url(images/comments-side.png) 0 0;
+}
+
+.widget  {
+width: 264px;
+float: left;
+padding: 0 26px 0 30px;
+margin: 0 0 30px 0;
+}
+
+.widget_categoryposts {
+margin-bottom: 10px;
+}
+
+.cat-post-item {
+border-bottom: 1px solid #CCCCCC;
+float: left;
+margin: 0 0 20px 0;
+padding: 0 0 5px 0;
+}
+
+.sidebar-ad {
+margin: 0 1px 5px 4px;
+}
+
+input#s {
+background: #FFFFFF url(images/fields.jpg) top left repeat-x;
+border: 1px solid #CCCCCC;
+padding: 6px 4px 6px 4px;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 12px;
+line-height: 18px;
+color: #6D6D6D;
+width: 255px;
+float: left;
+}
+
+input#search-submit {
+background: url(images/search.png) 0 0;
+border: 0;
+width: 25px;
+height: 27px;
+position: absolute;
+margin: 4px 0 0 -30px;
+cursor: pointer;
+}
+
+/*********************************************************************************************
+
+6.  Footer Styles  ---------------------  footer.php
+
+*********************************************************************************************/
+#footer {
+width: 960px;
+float: left;
+padding: 10px 0 40px 0;
+}
+
+#footer-content {
+width: 960px;
+float: left;
+}
+
+#footer h3 {
+color: #FFFFFF;
+font-weight: bold;
+}
+
+#footer li {
+font-size: 15px;
+display: inline;
+margin: 0 0 0 20px;
+}
+
+li.twitter {
+background: url(images/theme/twitter.png) left no-repeat;
+padding: 0 0 0 28px;
+}
