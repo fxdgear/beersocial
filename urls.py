@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import patterns, include, url
-from django.views.generic.simple import direct_to_template
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 from django.conf import settings
 from socialregistration.urls import urlpatterns
@@ -19,6 +19,8 @@ urlpatterns += patterns('',
     url(r'^$', 'beersocial.posts.views.homepage'),
     
 )
+
+urlpatterns += staticfiles_urlpatterns()
 
 if settings.DEBUG:
         urlpatterns += patterns('',
