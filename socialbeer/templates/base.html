@@ -26,8 +26,8 @@ Be inspired, but please don't steal...
     <meta name="google-site-verification" content="dJeW2T8SE7tXhQk1L0WKwb8EnG3o0svLMjyobB5OkOI" />
         
     <!-- import required theme styles --> 
-    <link rel="stylesheet" href="http://www.press75.com/themes/side-blog/wp-content/themes/side-blog/style.css" type="text/css" media="screen" /> 
-    <link rel="stylesheet" href="http://www.press75.com/themes/side-blog/wp-content/themes/side-blog/style.css3.css" type="text/css" media="screen" /> 
+    <link rel="stylesheet" href="/site_media/css/style.css" type="text/css" media="screen" /> 
+    <link rel="stylesheet" href="/site_media/css/style.css3.css" type="text/css" media="screen" /> 
     
     <!--[if IE 7]>
     <link rel="stylesheet" href="http://www.press75.com/themes/side-blog/wp-content/themes/side-blog/style-ie7.css" type="text/css" media="screen" />
@@ -61,7 +61,7 @@ Be inspired, but please don't steal...
     <style type="text/css" media="screen"> 
     </style>    
     <!-- enable gravity forms --> 
-    <link rel="stylesheet" href="http://www.press75.com/themes/side-blog/wp-content/themes/side-blog/style.gravity.css" type="text/css" media="screen" /> 
+    <link rel="stylesheet" href="/site_media/css/style.gravity.css" type="text/css" media="screen" /> 
         
     <!-- enable google analytics --> 
 </head> 
@@ -72,6 +72,7 @@ Be inspired, but please don't steal...
 
     <div id="blog"> 
         <div id="main"> 
+        {{ SITE_MEDIA }}
             {% block content %}{% endblock content %}
         </div> <!-- main --> 
         
