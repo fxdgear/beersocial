@@ -6,7 +6,7 @@ import re
 from django.utils.safestring import mark_safe
 from django import template
 
-from core.models import Challenge
+from beersocial.core.models import Challenge
      
 register = Library()
      
