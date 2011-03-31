@@ -13,7 +13,7 @@ env.project = 'beersocial'
 
 
 def _setup_path():
-    env.root = env.home
+    env.root = os.path.join(env.home, env.project)
     env.virtualenv_root = os.path.join(env.root, env.project)
     env.git_dir = os.path.join(env.home, env.virtualenv_root, 'src')
     env.code_root = os.path.join(env.git_dir, env.project)
