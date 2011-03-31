@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from beersocial.core.models import Challenge
+from socialbeer.core.models import Challenge
 
 admin.site.register(Challenge)
