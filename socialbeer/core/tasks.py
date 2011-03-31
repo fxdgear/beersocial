@@ -5,7 +5,7 @@ import pytz
 from django.core.exceptions import MultipleObjectsReturned
 from django.conf import settings
 
-from beersocial.posts.models import Post
+from socialbeer.posts.models import Post
 from celery.decorators import periodic_task
 from celery.task.schedules import crontab
 

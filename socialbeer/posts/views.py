@@ -5,7 +5,7 @@ from django.template import RequestContext
 
 from django.conf import settings
 
-from beersocial.posts.models import Post
+from socialbeer.posts.models import Post
 
 POSTS_PER_PAGE = getattr(settings, "POSTS_PER_PAGE", 25)
 
