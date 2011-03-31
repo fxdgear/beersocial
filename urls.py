@@ -1,7 +1,7 @@
 from django.conf.urls.defaults import patterns, include, url
 from django.views.generic.simple import direct_to_template
 from django.contrib import admin
-
+from django.conf import settings
 from socialregistration.urls import urlpatterns
 
 admin.autodiscover()
@@ -17,4 +17,8 @@ urlpatterns += patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'beersocial.posts.views.homepage'),
+    if settings.DEBUG:
+        urlpatterns += patterns('',
+            (r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_DOC_ROOT}),
+        )
 )
