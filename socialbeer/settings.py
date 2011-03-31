@@ -138,9 +138,6 @@ POSTS_PER_PAGE = 20
 TWITTER_SEARCH_TERMS = [
     "#socialbeer", 
     "socialbeer", 
-    "#beerme", 
-    "beerme", 
-    "kubball",
 ]
 
 
