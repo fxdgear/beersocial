@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-from beersocial.beers.models import Beer
+from socialbeer.beers.models import Beer
 
 class Post(models.Model):
     content = models.TextField()
