@@ -69,7 +69,7 @@ abbr, acronym {border: 0;}
 
 *********************************************************************************************/
 body {
-background: #444444 url(images/bg.jpg) repeat fixed;
+background: #444444 url(/site_media/img/bg.jpg) repeat fixed;
 width: auto;
 height: auto;
 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -319,7 +319,7 @@ font-weight: bold;
 }
 
 .comments-link {
-background: url(images/comments.png) 0 0;
+background: url(/site_media/img/comments.png) 0 0;
 width: 39px;
 height: 29px;
 float: right;
@@ -372,7 +372,7 @@ margin: 0 0 20px 0;
 }
 
 .post ul li {
-background: url(images/bullet.png) top left no-repeat;
+background: url(/site_media/img/bullet.png) top left no-repeat;
 margin: 0 0 5px 0;
 padding: 0 0 0 15px;
 }
@@ -562,7 +562,7 @@ margin-right: 10px;
 }
 
 #author, #email, #url, #comment {
-background: #FFFFFF url(images/fields.jpg) top left repeat-x;
+background: #FFFFFF url(/site_media/img/fields.jpg) top left repeat-x;
 border: 1px solid #CCCCCC;
 padding: 6px 4px 6px 4px;
 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -627,7 +627,7 @@ font-weight: bold;
 } 
 
 .comments-link-side {
-background: url(images/comments-side.png) 0 0;
+background: url(/site_media/img/comments-side.png) 0 0;
 }
 
 .widget  {
@@ -653,7 +653,7 @@ margin: 0 1px 5px 4px;
 }
 
 input#s {
-background: #FFFFFF url(images/fields.jpg) top left repeat-x;
+background: #FFFFFF url(/site_media/img/fields.jpg) top left repeat-x;
 border: 1px solid #CCCCCC;
 padding: 6px 4px 6px 4px;
 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -665,7 +665,7 @@ float: left;
 }
 
 input#search-submit {
-background: url(images/search.png) 0 0;
+background: url(/site_media/img/search.png) 0 0;
 border: 0;
 width: 25px;
 height: 27px;
