@@ -134,6 +134,13 @@ INSTALLED_APPS = (
 )
 
 POSTS_PER_PAGE = 20
+TWITTER_SEARCH_TERMS = [
+    "#beersocal", 
+    "beersocal", 
+    "#beerme", 
+    "beerme", 
+    "kubball",
+]
 
 
 # A sample logging configuration. The only tangible logging

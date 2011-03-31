@@ -3,6 +3,7 @@ import email, datetime
 import pytz
 
 from django.core.exceptions import MultipleObjectsReturned
+from django.conf import settings
 
 from posts.models import Post
 from celery.decorators import periodic_task
@@ -11,10 +12,11 @@ from celery.task.schedules import crontab
 @periodic_task(run_every=crontab(hour="*", minute="*", day_of_week="*")) 
 def get_new_tweets():
     twitter = Twython()  
-    results = twitter.searchTwitter(q="kubball")
+    TWITTER_SEARCH_TERMS = getattr(settings, "TWITTER_SEARCH_TERMS", "#beersocial")
+    terms = ",".join(TWITTER_SEARCH_TERMS)
 
+    results = twitter.searchTwitter(q=terms)
     tweets = results['results']
-
 
     for tweet in tweets:
         utctimestamp = email.Utils.mktime_tz(email.Utils.parsedate_tz( tweet['created_at'] ))
@@ -34,5 +36,4 @@ def get_new_tweets():
             obj.tweeter_profile_image=tweet['profile_image_url']
             obj.pub_date=tweet_date
             obj.save()
-            print obj
         
