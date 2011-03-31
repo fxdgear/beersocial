@@ -107,7 +107,7 @@ AUTHENTICATION_BACKENDS = (
     'socialregistration.auth.TwitterAuth'
 )
 
-ROOT_URLCONF = 'beersocial.urls'
+ROOT_URLCONF = 'socialbeer.urls'
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, "templates"),
