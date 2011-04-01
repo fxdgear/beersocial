@@ -58,7 +58,6 @@ class Post(models.Model):
                 api_url = "http://api.longurl.org/v2/expand"
                 params = urlencode({"url":url})
                 r,c = h.request(("%s?%s"%(api_url,params)), "GET")
-                print r,c
                 if r.status == 200:
                     x = etree.XML(c)
                     results = x.xpath("/response/long-url/text()")
