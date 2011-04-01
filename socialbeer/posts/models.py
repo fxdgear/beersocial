@@ -15,7 +15,7 @@ class Post(models.Model):
 
     beer = models.ForeignKey(Beer, blank=True, null=True)
 
-    status = models.BooleanField(default=True)
+    live = models.BooleanField(default=True, help_text="Checked box means the post is live on the site")
 
     class Meta:
         ordering = ["-pub_date"]

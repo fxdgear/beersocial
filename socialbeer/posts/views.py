@@ -11,7 +11,7 @@ POSTS_PER_PAGE = getattr(settings, "POSTS_PER_PAGE", 25)
 
 def homepage(request, *args, **kwargs):
     template = kwargs.pop('template', "homepage.html")
-    post_list = Post.objects.all()
+    post_list = Post.objects.filter(live=True)
     paginator = Paginator(post_list, 25)
 
     try:
