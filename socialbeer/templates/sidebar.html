@@ -39,22 +39,25 @@
     </div>
     {% endcomment %}
     {% get_current_theme as theme %} 
-    <div id="text-3" class="widget widget_text">
+    <div id="categoryposts-3" class="widget widget_categoryposts">
+        <div class="cat-post-item">
     
-    <h2>Current theme:</h3>
-    <div class="textwidget">
-        <h1>{{ theme.name }}</h1>
-        <span>{{ theme.start_date }} - {{ theme.end_date }}</span> 
-        <p>{{ theme.description|markdown }}<p>
-    </div> 
-    </div>
-    {% get_random oembed.StoredOEmbed 10 as photos %}
-    <div id="sidebar-images" class="widget"> 
-        <h1>What are you drinking?</h1><br>
-        <div class="textwidget">
-        {% for photo in photos %}
-            <a href='{{ photo.url }}'><img class='sidebar-img' src='{{ photo.thumbnail_url }}' alt='{{ photo.title }}' width='120'/></a>
-        {% endfor %}
+        <h2>Current theme:</h3>
+            <div class="textwidget">
+                <h1 class="post-title">{{ theme.name }}</h1>
+                <span>{{ theme.start_date }} - {{ theme.end_date }}</span> 
+                <p>{{ theme.description|markdown }}<p>
+            </div> 
         </div>
+    
+        {% get_random oembed.StoredOEmbed 10 as photos %}
+        <div class="cat-post-item" > 
+            <h1 class="post-title">What are you drinking?</h1><br>
+            <div class="post-thumbnail-side">
+            {% for photo in photos %}
+                <a class="attachment-sidebar wp-post-image" href='{{ photo.url }}'><img class='sidebar-img' src='{{ photo.thumbnail_url }}' alt='{{ photo.title }}' width='90'/></a>
+            {% endfor %}
+            </div>
+        </div>    
     </div>      
 {% endblock sidebar %}    
