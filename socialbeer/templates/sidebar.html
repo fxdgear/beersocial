@@ -53,7 +53,7 @@
         <h1>What are you drinking?</h1><br>
         <div class="textwidget">
         {% for photo in photos %}
-            <a href='{{ photo.url }}/'><img class='sidebar-img' src='{{ photo.url }}' alt='{{ photo.title }}' width='120'/></a>
+            <a href='{{ photo.url }}'><img class='sidebar-img' src='{{ photo.thumbnail_url }}' alt='{{ photo.title }}' width='120'/></a>
         {% endfor %}
         </div>
     </div>      

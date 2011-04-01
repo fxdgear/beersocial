@@ -23,7 +23,8 @@ class RandomContentNode(Node):
             photo = {}
             try:
                 photo['title'] = eval(embed.response_json)['title']
-                photo['url'] = eval(embed.response_json)['thumbnail_url']
+                photo['thumbnail_url'] = eval(embed.response_json)['thumbnail_url']
+                photo['url'] = eval(embed.response_json)['url']
                 photo['width'] = eval(embed.response_json)['thumbnail_width']
                 photos.append(photo)
             except:
