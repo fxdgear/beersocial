@@ -27,7 +27,9 @@ Be inspired, but please don't steal...
         
     <!-- import required theme styles --> 
     <link rel="stylesheet" href="/site_media/css/style.css" type="text/css" media="screen" /> 
-    <link rel="stylesheet" href="/site_media/css/style.css3.css" type="text/css" media="screen" /> 
+    <link rel="stylesheet" href="/site_media/css/style.css3.css" type="text/css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/site_media/css/jquery.thumbs.css" />
+ 
     
     <!--[if IE 7]>
     <link rel="stylesheet" href="/site_media/css/style-ie7.css" type="text/css" media="screen" />
@@ -56,7 +58,8 @@ Be inspired, but please don't steal...
     <style type="text/css" media="screen"> 
     </style>    
     <!-- enable gravity forms --> 
-    <link rel="stylesheet" href="/site_media/css/style.gravity.css" type="text/css" media="screen" /> 
+    <link rel="stylesheet" href="/site_media/css/style.gravity.css" type="text/css" media="screen" />
+     
         
     <!-- enable google analytics --> 
     <script type="text/javascript">
@@ -105,5 +108,30 @@ Be inspired, but please don't steal...
     </script>
     <script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
     <![endif]--> 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script>!window.jQuery && document.write('<script src="jquery-1.4.2.min.js"><\/script>')</script>
+
+    <script type="text/javascript" src="/site_media/js/jquery.thumbs.js"></script>
+
+    <script type="text/javascript">
+        (function($) {
+        
+            $(document).ready(function(){
+                $('#enable').live('click', function(){
+                    $('.thumb').thumbs();
+                    $('#disable').show();
+                    $(this).hide();
+                });
+        
+                $('#disable').hide().live('click', function(){
+                    $('.thumb').thumbs('destroy');
+                    $('#enable').show();
+                    $(this).hide();
+                })
+            });
+        
+        })(jQuery);
+    </script>
+
     </body> 
 </html>

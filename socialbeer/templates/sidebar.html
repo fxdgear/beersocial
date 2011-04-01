@@ -55,7 +55,7 @@
             <h1 class="post-title">What are you drinking?</h1><br>
             <div class="post-thumbnail-side">
             {% for photo in photos %}
-                <a class="attachment-sidebar wp-post-image" href='{{ photo.url }}'><img class='sidebar-img' src='{{ photo.thumbnail_url }}' alt='{{ photo.title }}' width='90'/></a>
+                <a class="attachment-sidebar wp-post-image" href='{{ photo.url }}'><img class='thumb' src='{{ photo.thumbnail_url }}' alt='{{ photo.title }}' width="90"/></a>
             {% endfor %}
             </div>
         </div>    
