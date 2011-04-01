@@ -50,7 +50,7 @@
     </div>
     {% get_random oembed.StoredOEmbed 10 as photos %}
     <div id="sidebar-images" class="widget"> 
-        <h1>Yummy yummy Beer!</h1><br>
+        <h1>What are you drinking?</h1><br>
         <div class="textwidget">
         {% for photo in photos %}
             <a href='{{ photo.url }}/'><img class='sidebar-img' src='{{ photo.url }}' alt='{{ photo.title }}' width='120'/></a>
