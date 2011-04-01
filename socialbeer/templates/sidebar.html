@@ -40,14 +40,21 @@
     {% endcomment %}
     {% get_current_theme as theme %} 
     <div id="text-3" class="widget widget_text">
-    <span>{{ theme.start_date }} - {{ theme.end_date }}</span>
-    <h1>Current theme:</h1>
+    
+    <h2>Current theme:</h3>
     <div class="textwidget">
-        <h3>{{ theme.name }}</h3> 
+        <h1>{{ theme.name }}</h1>
+        <span>{{ theme.start_date }} - {{ theme.end_date }}</span> 
         <p>{{ theme.description|markdown }}<p>
     </div> 
     </div>
-    <div id="p75-sidebar-ads-2" class="widget p75_sidebar_ads"> 
-        <a class='simple-ads' href='http://www.press75.com/'><img class='sidebar-ad' src='http://www.press75.com/images/125.jpg' alt='Advertisement' /></a><a class='simple-ads' href='http://www.press75.com/'><img class='sidebar-ad' src='http://www.press75.com/images/125.jpg' alt='Advertisement' /></a><a class='simple-ads' href='http://www.press75.com/'><img class='sidebar-ad' src='http://www.press75.com/images/125.jpg' alt='Advertisement' /></a><a class='simple-ads' href='http://www.press75.com/'><img class='sidebar-ad' src='http://www.press75.com/images/125.jpg' alt='Advertisement' /></a>
+    {% get_random oembed.StoredOEmbed 10 as photos %}
+    <div id="sidebar-images" class="widget"> 
+        <h1>Yummy yummy Beer!</h1><br>
+        <div class="textwidget">
+        {% for photo in photos %}
+            <a href='{{ photo.url }}/'><img class='sidebar-img' src='{{ photo.url }}' alt='{{ photo.title }}' width='120'/></a>
+        {% endfor %}
+        </div>
     </div>      
 {% endblock sidebar %}    

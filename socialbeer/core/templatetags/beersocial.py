@@ -9,6 +9,54 @@ from django import template
 from socialbeer.core.models import Challenge
      
 register = Library()
+
+class RandomContentNode(Node):
+    def __init__(self, model, num, varname):
+        self.num, self.varname = int(num), varname
+        self.model = get_model(*model.split('.'))
+    
+    def render(self, context):
+        limit = int(self.num) + 10
+        photos = []
+        oembeds = self.model._default_manager.all().order_by('?')[:limit]
+        for embed in oembeds:
+            photo = {}
+            try:
+                photo['title'] = eval(embed.response_json)['title']
+                photo['url'] = eval(embed.response_json)['thumbnail_url']
+                photo['width'] = eval(embed.response_json)['thumbnail_width']
+                photos.append(photo)
+            except:
+                pass
+        context[self.varname] = photos[:self.num] 
+        return ''
+ 
+def get_random(parser, token):
+    """
+    {% get_random appname.Model num as varname %}
+    """
+    bits = token.contents.split()
+    if len(bits) != 5:
+        raise TemplateSyntaxError, "get_random tag takes exactly four arguments"
+    if bits[3] != 'as':
+        raise TemplateSyntaxError, "third argument to get_latest tag must be 'as'"
+    return RandomContentNode(bits[1], bits[2], bits[4])
+
+
+class RenderContentNode(Node):
+    def __init__(self, post):
+        try:
+            self.post = Variable(post)
+        except DoesNotExist:
+            raise 
+
+    
+    def render(self, context):
+        post = self.post.resolve(context)
+        t = loader.get_template("post_detail.html")
+        c = Context({"post": post})
+
+        return t.render(c)
      
 class LatestContentNode(Node):
     def __init__(self, model, num, varname):
@@ -20,6 +68,10 @@ class LatestContentNode(Node):
         return ''
  
 def get_latest(parser, token):
+    """
+    {% get_latest appname.Model 20 as varname %}
+    """
+
     bits = token.contents.split()
     if len(bits) != 5:
         raise TemplateSyntaxError, "get_latest tag takes exactly four arguments"
@@ -103,3 +155,4 @@ def twitterfy(tweet):
 render_content = register.tag(render_content)
 get_current_theme = register.tag(get_current_theme)    
 get_latest = register.tag(get_latest)
+get_random = register.tag(get_random)
