@@ -54,9 +54,33 @@
         <div class="cat-post-item" > 
             <h1 class="post-title">What are you drinking?</h1><br>
             <div class="post-thumbnail-side">
-            {% for photo in photos %}
-                <a class="attachment-sidebar wp-post-image" href='{{ photo.url }}'><img class='thumb' src='{{ photo.thumbnail_url }}' alt='{{ photo.title }}' width="90"/></a>
-            {% endfor %}
+            <table border="0">
+              <tr>
+                {% for photo in photos|slice:":2" %}
+                  <td style="border: 0px;padding: 4px;"><a class="attachment-sidebar wp-post-image" href='{{ photo.url }}'><img class='thumb' src='{{ photo.thumbnail_url }}' alt='{{ photo.title }}' width="90"/></a></td>        
+                {% endfor %}
+              </tr>
+              <tr>
+                {% for photo in photos|slice:"2:4" %}
+                  <td style="border: 0px;padding: 4px;"><a class="attachment-sidebar wp-post-image" href='{{ photo.url }}'><img class='thumb' src='{{ photo.thumbnail_url }}' alt='{{ photo.title }}' width="90"/></a></td>        
+                {% endfor %}
+              </tr>
+              <tr>
+                {% for photo in photos|slice:"4:6" %}
+                  <td style="border: 0px;padding: 4px;"><a class="attachment-sidebar wp-post-image" href='{{ photo.url }}'><img class='thumb' src='{{ photo.thumbnail_url }}' alt='{{ photo.title }}' width="90"/></a></td>        
+                {% endfor %}
+              </tr>
+              <tr>
+                {% for photo in photos|slice:"6:8" %}
+                  <td style="border: 0px;padding: 4px;"><a class="attachment-sidebar wp-post-image" href='{{ photo.url }}'><img class='thumb' src='{{ photo.thumbnail_url }}' alt='{{ photo.title }}' width="90"/></a></td>        
+                {% endfor %}
+              </tr>
+              <tr>
+                {% for photo in photos|slice:"8:10" %}
+                  <td style="border: 0px;padding: 4px;"><a class="attachment-sidebar wp-post-image" href='{{ photo.url }}'><img class='thumb' src='{{ photo.thumbnail_url }}' alt='{{ photo.title }}' width="90"/></a></td>        
+                {% endfor %}
+              </tr>
+            </table>
             </div>
         </div>    
     </div>      
