@@ -135,7 +135,7 @@ INSTALLED_APPS = (
     'djkombu',
 )
 
-POSTS_PER_PAGE = 20
+POSTS_PER_PAGE = 15
 TWITTER_SEARCH_TERMS = [
     "#socialbeer", 
     "socialbeer", 
