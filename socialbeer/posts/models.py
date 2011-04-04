@@ -63,8 +63,7 @@ class Post(models.Model):
                     results = x.xpath("/response/long-url/text()")
                     if results:
                         self.content = self.content.replace(url, results[0])
-        
-        super(Post, self).save()
+                        super(Post, self).save()
 
 
 
