@@ -148,7 +148,7 @@ def twitterfy(tweet):
     
     # replace with link to profile
     link = r'\g<start>@<a href="http://twitter.com/\g<user>"  title="@\g<user> on Twitter">\g<user></a>\g<end>'
-    text = pattern.sub(link,tweet)
+    text = pattern.sub(link,text)
     
     return mark_safe(text)
 
