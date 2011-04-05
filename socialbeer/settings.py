@@ -149,9 +149,9 @@ CACHES = {
     }
 }
 
-CACHE_MIDDLEWARE_ALIAS = "socialbeer-cache"
-CACHE_MIDDLEWARE_SECONDS = 300
-CACHE_MIDDLEWARE_KEY_PREFIX = ""
+#CACHE_MIDDLEWARE_ALIAS = "socialbeer-cache"
+#CACHE_MIDDLEWARE_SECONDS = 300
+#CACHE_MIDDLEWARE_KEY_PREFIX = ""
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
