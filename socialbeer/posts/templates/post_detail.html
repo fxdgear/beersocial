@@ -8,7 +8,7 @@
     
     <div class="post-30 post type-post status-publish format-standard hentry category-example-posts category-sample-category category-sample-posts category-samples">
         {% for embed in post.content|extract_oembeds:"photo" %}
-        <a href="{{ embed.url }}" class="fancy" title="{{ embed.title }}"><img width="250" src="{{ embed.url }}" class="attachment-post-thumbnail wp-post-image" alt="Broken" title="{{ embed.title }}" /></a> 
+        <a href="{{ embed.url }}" class="fancy" title="{{ embed.title }}"><img width="250" src="{{ embed.url }}" class="attachment-post-thumbnail wp-post-image" alt="Loading...." title="{{ embed.title }}" /></a> 
         {% endfor %}
         <h3>{{ post.content|strip_oembeds|twitterfy }} {# <a href="{{ post.get_absolute_url }}" class="more-link">&#8230; Continue Reading</a> #}</h3>
         {% if post.tweet_id %}
