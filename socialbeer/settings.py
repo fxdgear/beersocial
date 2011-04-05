@@ -143,6 +143,12 @@ TWITTER_SEARCH_TERMS = [
     "socialbeer", 
 ]
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+    }
+}
+
 CACHE_MIDDLEWARE_ALIAS = "socialbeer-cache"
 CACHE_MIDDLEWARE_SECONDS = 300
 CACHE_MIDDLEWARE_KEY_PREFIX = ""
