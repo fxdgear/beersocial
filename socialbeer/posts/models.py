@@ -49,22 +49,6 @@ class Post(models.Model):
         else:
             return "http://twitter.com/%s/" % self.tweeter_name
 
-    def save(self, *args, **kwargs):
-        super(Post, self).save(*args, **kwargs)
-        urls = re.findall(r'(https?://\S+)', self.content)
-        if urls:
-            for url in urls:
-                h = Http()
-                api_url = "http://api.longurl.org/v2/expand"
-                params = urlencode({"url":url})
-                r,c = h.request(("%s?%s"%(api_url,params)), "GET")
-                if r.status == 200:
-                    x = etree.XML(c)
-                    results = x.xpath("/response/long-url/text()")
-                    if results:
-                        self.content = self.content.replace(url, results[0])
-                        super(Post, self).save()
-
 
 
 

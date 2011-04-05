@@ -1,13 +1,13 @@
 from twython import Twython 
 import email, datetime
 import pytz
-from textwrap import TextWrapper
 
 
 from django.core.exceptions import MultipleObjectsReturned
 from django.conf import settings
 
 from socialbeer.posts.models import Post
+from socialbeer.core.utils import expand_urls
 from celery.decorators import periodic_task, task
 from celery.schedules import crontab
 
@@ -47,7 +47,7 @@ def process_tweet(status, *args, **kwargs):
         created=False
     
     if created:
-        obj.content=status.text
+        obj.content=expand_urls(status.text)
         obj.tweeter_name=status.author.screen_name
         obj.tweeter_profile_image=status.author.profile_image_url
         obj.pub_date = status.created_at
