@@ -94,6 +94,7 @@ TEMPLATE_CONTEXT_PROCESSORS= (
 )
 
 MIDDLEWARE_CLASSES = (
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -101,6 +102,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
 AUTHENTICATION_BACKENDS = (
@@ -141,6 +143,9 @@ TWITTER_SEARCH_TERMS = [
     "socialbeer", 
 ]
 
+CACHE_MIDDLEWARE_ALIAS = "socialbeer-cache"
+CACHE_MIDDLEWARE_SECONDS = 300
+CACHE_MIDDLEWARE_KEY_PREFIX = ""
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
