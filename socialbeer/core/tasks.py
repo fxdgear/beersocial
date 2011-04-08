@@ -1,4 +1,3 @@
-import ipdb
 from django.contrib.auth.models import User
 from django.contrib.sites.models import Site
 
@@ -13,7 +12,6 @@ from socialregistration.models import TwitterProfile
 @task()
 def process_tweet(status, *args, **kwargs):
 
-    ipdb.set_trace() ################## Break Point ######################
     try:
         profile = Profile.objects.get(user__twitterprofile__twitter_id=status.user.id)
     except:
