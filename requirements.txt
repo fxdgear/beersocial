@@ -11,6 +11,7 @@ celery==2.2.5
 django-celery==2.2.4
 django-kombu==0.9.2
 django-picklefield==0.1.9
+django-profiles==0.2
 -e git+https://github.com/flashingpumpkin/django-socialregistration.git@master#egg=django_socialregistration
 -e git://github.com/worldcompany/djangoembed.git@master#egg=djangoembed
 ghettoq==0.4.5

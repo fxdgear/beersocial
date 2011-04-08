@@ -131,11 +131,15 @@ INSTALLED_APPS = (
     'socialbeer.beers',
     'socialbeer.core',
     'socialbeer.posts',
+    'socialbeer.members',
+    'profiles',
     'oembed',
     'djcelery',
     'ghettoq',
     'djkombu',
 )
+
+AUTH_PROFILE_MODULE = "members.Profile"
 
 POSTS_PER_PAGE = 15
 TWITTER_SEARCH_TERMS = [
