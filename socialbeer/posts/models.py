@@ -7,10 +7,11 @@ from django.db import models
 from django.contrib.auth.models import User
 
 from socialbeer.beers.models import Beer
+from socialbeer.members.models import Profile
 
 class Post(models.Model):
     content = models.TextField()
-    author = models.ForeignKey(User, blank=True, null=True)
+    author = models.ForeignKey(Profile, blank=True, null=True)
     tweeter_name = models.CharField(max_length=100, blank=True, null=True)
     tweeter_id = models.BigIntegerField(blank=True, null=True)
     tweeter_profile_image = models.URLField(blank=True, null=True)
@@ -36,7 +37,7 @@ class Post(models.Model):
         return "http://twitter.com/%s/status/%d" %( self.tweeter_name, self.tweet_id)
     
     @property
-    def post_author(self):
+    def post_author_foo(self):
         if self.author:
             return self.author
         else:
