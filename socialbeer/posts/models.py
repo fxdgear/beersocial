@@ -28,7 +28,7 @@ class Post(models.Model):
 
     def __unicode__(self):
         if self.author:
-            return "Post: '%s' by %s on %s" % (self.content[:20], self.author.username, self.pub_date)
+            return "Post: '%s' by %s on %s" % (self.content[:20], self.author, self.pub_date)
         else:
             return "Post: '%s' by %s on %s" % (self.content[:20], self.tweeter_name, self.pub_date)
 
@@ -37,7 +37,7 @@ class Post(models.Model):
         return "http://twitter.com/%s/status/%d" %( self.tweeter_name, self.tweet_id)
     
     @property
-    def post_author_foo(self):
+    def post_author(self):
         if self.author:
             return self.author
         else:
