@@ -1,11 +1,9 @@
-import ipdb
 from django.conf.urls.defaults import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 from django.conf import settings
 from socialregistration.urls import urlpatterns as socialreg_urls
 
-ipdb.set_trace() ################## Break Point ######################
 admin.autodiscover()
 
 urlpatterns = patterns('',
