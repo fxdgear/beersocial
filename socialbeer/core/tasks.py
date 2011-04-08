@@ -6,7 +6,7 @@ from celery.decorators import task
 from socialbeer.posts.models import Post
 from socialbeer.core.utils import expand_urls
 from socialbeer.members.models import Profile
-from soccialregistration.models import TwitterProfile
+from socialregistration.models import TwitterProfile
 
         
 @task()
