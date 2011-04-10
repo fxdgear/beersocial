@@ -1,0 +1,10 @@
+{% extends "profiles/profile_base.html" %}
+{% load beersocial %}
+
+{% block content %}
+
+{% for post in profile.all_posts  %}
+    {% render_content for post %}
+{% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,47 @@
+{% load beersocial %}
+{% load markup %}
+    {% comment %}
+    <div id="search-3" class="widget widget_search">
+        <script type="text/javascript">
+            function doClear(theText) {
+            if (theText.value == theText.defaultValue) {
+                theText.value = ""
+                }
+            }
+        </script> 
+    
+           <div id="search">
+               <form method="get" id="search-form" action="http://www.press75.com/themes/side-blog/">
+               <input type="text" name="s" id="s" value="Search" onfocus="doClear(this)" /> 
+               <input type="submit" id="search-submit" value="" />
+               </form>
+        </div> <!-- search -->
+    </div>
+    <div id="categoryposts-3" class="widget widget_categoryposts">      
+        <div class="cat-post-item">
+            <a class="comments-link comments-link-side" href="http://www.press75.com/themes/side-blog/this-is-a-sample-post-2/#comments" title="Comments">2</a> 
+            
+            <h2 class="post-title"><a href="http://www.press75.com/themes/side-blog/this-is-a-sample-post-2/" rel="bookmark" title="This is a Sample Post">This is a Sample Post</a></h2> 
+            <p class="post-meta">Posted on July 23, 2010</p> 
+            
+                        <div class="post-thumbnail-side"> 
+                <a class="thumbnail-frame-side" href="http://www.press75.com/themes/side-blog/this-is-a-sample-post-2/" title="This is a Sample Post"><!-- nothing to see here --></a> 
+                <a href="http://www.press75.com/themes/side-blog/this-is-a-sample-post-2/" rel="bookmark" title="This is a Sample Post"><img width="75" height="75" src="http://www.press75.com/themes/side-blog/files/2010/07/subway-75x75.jpg" class="attachment-sidebar wp-post-image" alt="Subway" title="subway" /></a> 
+            </div>
+                        
+            <div class="cat-post-content"> 
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nec facilisis elit. Ut imperdiet, mi sed laoreet &#8230;</p> 
+ 
+                            </div>
+        </div>
+            
+    </div>
+    {% endcomment %}
+    {% get_current_theme as theme %} 
+    <div id="categoryposts-3" class="widget widget_categoryposts">
+        <div class="cat-post-item">
+                <div class="textwidget">
+                <h1 class="post-title">{{ profile.user.username|capfirst }}'s Posts</h1>
+            </div> 
+        </div>
+    </div>      

@@ -17,6 +17,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'socialbeer.posts.views.homepage'),
+    (r'^accounts/', include('members.urls')),
     
 )
 
