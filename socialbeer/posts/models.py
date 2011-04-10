@@ -1,13 +1,12 @@
-from urllib import urlencode
-from httplib2 import Http
-import re
-from lxml import etree
-
 from django.db import models
 from django.contrib.auth.models import User
 
 from socialbeer.beers.models import Beer
-from socialbeer.members.models import Profile
+
+class PostManager(models.Manager):
+    def published(self):
+        return self.filter(live=True)
+
 
 class Post(models.Model):
     content = models.TextField()
@@ -18,10 +17,11 @@ class Post(models.Model):
     tweet_id = models.BigIntegerField(blank=True, null=True)
     pub_date = models.DateTimeField(blank=True, null=True)
     
-
     beer = models.ForeignKey(Beer, blank=True, null=True)
 
     live = models.BooleanField(default=True, help_text="Checked box means the post is live on the site")
+
+    objects = PostManager()
 
     class Meta:
         ordering = ["-pub_date"]

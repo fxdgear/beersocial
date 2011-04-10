@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models import signals
 
 from socialbeer.members.signals import create_profile
+from socialbeer.posts.models import Post
 
 from socialregistration.models import OpenIDProfile, TwitterProfile, FacebookProfile
 
@@ -45,6 +46,10 @@ class Profile(models.Model):
             return OpenIDProfile.objects.get(user=self.user)
         except:
             return None
+
+    def all_posts(self):
+        return Post.objects.published().filter(author=self.user)
+
 
 
 
