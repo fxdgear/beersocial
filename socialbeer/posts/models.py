@@ -11,7 +11,7 @@ from socialbeer.members.models import Profile
 
 class Post(models.Model):
     content = models.TextField()
-    author = models.ForeignKey(Profile, blank=True, null=True)
+    author = models.ForeignKey(User, blank=True, null=True)
     tweeter_name = models.CharField(max_length=100, blank=True, null=True)
     tweeter_id = models.BigIntegerField(blank=True, null=True)
     tweeter_profile_image = models.URLField(blank=True, null=True)
