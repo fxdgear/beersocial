@@ -20,7 +20,7 @@ def process_tweet(status, *args, **kwargs):
         profile = Profile.objects.get(user=user, user__twitterprofile=twitter_profile)
 
     try:
-        obj, created = Post.objects.get_or_create(author=profile, tweet_id=status.id)
+        obj, created = Post.objects.get_or_create(author=profile.user, tweet_id=status.id)
     except:
         created=False
 
