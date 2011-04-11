@@ -3,8 +3,11 @@
 
 {% block content %}
 
-{% for post in profile.all_posts  %}
+{% if not profile.all_posts %}
+  <h1>There are no posts!</h1>
+{% else %}
+  {% for post in profile.all_posts  %}
     {% render_content for post %}
-{% endfor %}
-
+  {% endfor %}
+{% endif %}
 {% endblock content %}
