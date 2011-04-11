@@ -8,7 +8,10 @@
         <div id="navigation"> 
           <ul class="menu"> 
             <li class="current"><a href="/" title="Home">Home</a></li>         
-            <li><a href="/about/" title="About Social Beer">About</a> 
+            <li><a href="/about/" title="About Social Beer">About</a></li>
+            {% if user.is_authenticated %}
+              <li><a href="/logout/" title="Logout">Logout</a></li>
+            {% endif %}
         </ul> 
       </div> <!-- navigation --> 
     {% endblock navigation %}
