@@ -293,6 +293,15 @@ float: left;
 margin: 0 0 0 0;
 }
 
+#main404 {
+background: #FFFFFF;
+color: #6D6D6D;
+width: 960px;
+float: right;
+text-align: center;
+padding: 30px 30px 30px 35px;
+}
+
 #main {
 background: #FFFFFF;
 color: #6D6D6D;
@@ -300,6 +309,7 @@ width: 570px;
 float: left;
 padding: 30px 30px 15px 35px;
 }
+
 
 #main h1, #main h2, #main h3, #main h4 {
 font-weight: bold;
