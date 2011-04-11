@@ -2,17 +2,21 @@
 {% load socialregistration_tags %}
 
 {% block content %}
-<h1>Setup</h1>
-
-{% if error %}
-    <h2>Your session timed out. Please try again.</h2>
-{% else %}
-    <form action="." method="post">
-        <table>
-            {{ form }}
-        </table>
-        {% social_csrf_token %}
-        <input type="submit" value="save" />
-    </form>
-{% endif %}
+<div class="post-item"> 
+    <h2 class="post-title">Setup</h2> 
+    
+    <div class="format-standard">
+        {% if error %}
+            <h3>Your session timed out. Please try again.</h3>
+        {% else %}
+            <form action="." method="post">
+                <table>
+                    {{ form }}
+                </table>
+                {% social_csrf_token %}
+                <input type="submit" value="save" />
+            </form>
+        {% endif %}
+    </div> 
+</div>
 {% endblock %}
