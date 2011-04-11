@@ -3,5 +3,8 @@
 {% block sidebar %}{% endblock sidebar %}
 
 {% block content %}
-  <img src="/site_media/img/beer_404.jpg">
+  {{ block.super }}
+  <div id="main">
+  <img src="/site_media/img/beer_404.jpg" align="center">
+  </div>
 {% endblock content %}
