@@ -13,6 +13,9 @@ class Profile(models.Model):
 
     # Will hold more information here about users
 
+    def get_absolute_url(self):
+        return "/accounts/%s" % self.user.__unicode__()
+
 
     @property
     def full_name(self):
@@ -24,7 +27,7 @@ class Profile(models.Model):
             return "%s" % self.user
 
     def __unicode__(self):
-        return "%s" % self.user
+        return "%s" % self.user.__unicode__()
     
     @property
     def twitter_profile(self):

@@ -46,9 +46,9 @@ class Post(models.Model):
     @property
     def author_url(self):
         if self.author:
-            return self.author.get_absolute_url()
+            return self.user.get_profile().get_absolute_url()
         else:
-            return "http://twitter.com/%s/" % self.tweeter_name
+            return "http://twitter.com/%s/" % self.author.get_profile()
 
 
 
