@@ -2,13 +2,15 @@ from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
-
+from django.core.cache import cache
 from django.conf import settings
+from django.views.decorators.cache import cache_page
 
 from socialbeer.posts.models import Post
 
 POSTS_PER_PAGE = getattr(settings, "POSTS_PER_PAGE", 25)
 
+@cache_page(60*5)
 def homepage(request, *args, **kwargs):
     template = kwargs.pop('template', "homepage.html")
     post_list = Post.objects.filter(live=True)
