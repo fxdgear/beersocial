@@ -10,6 +10,7 @@
             <li class="current"><a href="/" title="Home">Home</a></li>         
             <li><a href="/about/" title="About Social Beer">About</a></li>
             {% if user.is_authenticated %}
+              <li><a href="{% url profiles_profile_detail user %}" title="{{ user }}'s Profile">{{ user }}'s Profile</a></li>
               <li><a href="/logout/" title="Logout">Logout</a></li>
             {% endif %}
         </ul> 
