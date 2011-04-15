@@ -34,7 +34,7 @@ class Post(models.Model):
 
     @property
     def tweet_url(self):
-        return "http://twitter.com/%s/status/%d" %( self.tweeter_name, self.tweet_id)
+        return "http://twitter.com/%s/status/%d" %( self.author, self.tweet_id)
     
     @property
     def post_author(self):
