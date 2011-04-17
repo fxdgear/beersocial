@@ -90,4 +90,4 @@ def update_twitter_profile( *args, **kwargs):
  
 # When model instance is saved, trigger creation of corresponding profile
 signals.post_save.connect(create_profile, sender=User)
-user_logged_in.connect(update_twitter_profile, sender=Profile)
+user_logged_in.connect(update_twitter_profile)
