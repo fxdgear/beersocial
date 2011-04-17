@@ -71,8 +71,8 @@ class Profile(models.Model):
 def update_twitter_profile( *args, **kwargs):
     a = API()
     user = kwargs.get('user')
-    profile = user.get_profile()
     try:
+        profile = user.get_profile()
         twitter_user = a.get_user(user_id=profile.twitter_profile.twitter_id)
     except:
         twitter_user = None
