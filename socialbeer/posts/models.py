@@ -11,9 +11,6 @@ class PostManager(models.Manager):
 class Post(models.Model):
     content = models.TextField()
     author = models.ForeignKey(User, blank=True, null=True)
-    tweeter_name = models.CharField(max_length=100, blank=True, null=True)
-    tweeter_id = models.BigIntegerField(blank=True, null=True)
-    tweeter_profile_image = models.URLField(blank=True, null=True)
     tweet_id = models.BigIntegerField(blank=True, null=True)
     pub_date = models.DateTimeField(blank=True, null=True)
     
