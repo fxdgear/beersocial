@@ -3,8 +3,10 @@ from tweepy.api import API
 from celery.decorators import task
 
 @task()
-def update_twitter_profile(profile, *args, **kwargs):
+def update_twitter_profile( *args, **kwargs):
     a = API()
+    user = kwargs.get['instance']
+    profile = user.get_profile()
     twitter_user = a.get_user(user_id=profile.twitter_profile.twitter_id)
     
     profile.user.first_name = twitter_user.name.split(" ")[0]
