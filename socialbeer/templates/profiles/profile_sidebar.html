@@ -40,8 +40,24 @@
     {% get_current_theme as theme %} 
     <div id="categoryposts-3" class="widget widget_categoryposts">
         <div class="cat-post-item">
-                <div class="textwidget">
-                <h1 class="post-title">{{ profile.user.username|capfirst }}'s Posts</h1>
-            </div> 
+            <h1 class="post-title">{{ profile|capfirst }}'s Profile</h1>
+            
+            <div class="post-thumbnail-side">
+                
+                <a href="http://twitter.com/{{ profile.twitter_name }}" title="{{ profile }}'s Twitter Page"><img width="50" height="50" src="{{ profile.avatar }}" class="attachment-sidebar wp-post-image"></a>
+            </div>
+                        
+            <div class="cat-post-content" style="width:280px">
+                <p>
+                  Name: {{ profile.full_name }}</br>
+                  {% if profile.description %}
+                    Bio: {{ profile.description }}</br>
+                  {% endif %}
+                  {% if profile.location %}
+                    Location: {{ profile.location }}</br>
+                  {% endif %}
+                </p>
+ 
+            </div>
         </div>
     </div>      

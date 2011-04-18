@@ -17,11 +17,21 @@ class Profile(models.Model):
     profile_image_url = models.URLField(blank=True, null=True)
     website = models.URLField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
+    location = models.CharField(max_length=300, blank=True, null=True)
     twitter_name = models.CharField(max_length=100, blank=True, null=True)
 
 
     def get_absolute_url(self):
         return "/accounts/%s" % self.user.__unicode__()
+    
+    @property
+    def avatar(self):
+        if self.profile_image_url:
+            return self.profile_image_url
+        elif self.profile_image:
+            return self.profile_image.url
+        else:
+            return None
 
     @property
     def first_name(self):
@@ -34,11 +44,11 @@ class Profile(models.Model):
     @property
     def full_name(self):
         if self.first_name and self.last_name:
-            return "%s %s" % (self.user.firstname, self.user.lastname)
+            return "%s %s" % (self.user.first_name.capitalize, self.user.last_name.capitalize)
         elif self.first_name or self.last_name:
-            return "%s%s" % (self.first_name, self.last_name)
+            return "%s%s" % (self.first_name.capitalize, self.last_name.capitalize)
         else:
-            return "%s" % self.user
+            return "%s" % self.user.username.capitalize
 
     def __unicode__(self):
         return "%s" % self.user.__unicode__()
@@ -64,6 +74,11 @@ class Profile(models.Model):
         except:
             return None
 
+    @property
+    def latest_post(self):
+        print self.all_posts()
+        return self.all_posts()[0]
+
     def all_posts(self):
         return Post.objects.published().filter(author=self.user)
 
@@ -86,6 +101,7 @@ def update_twitter_profile( *args, **kwargs):
         profile.profile_image_url = twitter_user.profile_image_url    
         profile.description = twitter_user.description    
         profile.twitter_name = twitter_user.screen_name
+        profile.location=twitter_user.location
         profile.save()
  
 # When model instance is saved, trigger creation of corresponding profile
