@@ -13,7 +13,7 @@ POSTS_PER_PAGE = getattr(settings, "POSTS_PER_PAGE", 25)
 @cache_page(60*5)
 def homepage(request, *args, **kwargs):
     template = kwargs.pop('template', "homepage.html")
-    post_list = Post.objects.filter(live=True)
+    post_list = Post.objects.published()
     paginator = Paginator(post_list, POSTS_PER_PAGE)
 
     try:
@@ -30,3 +30,14 @@ def homepage(request, *args, **kwargs):
         'posts': posts,
     }, RequestContext(request))
 
+
+def post_detail(request, post_id, *args, **kwargs):
+    template = kwargs.pop('template', 'posts/post_detail.html')
+    post = Post.objects.get(pk=post_id)
+
+    return render_to_response(template, {
+        'post': post,
+    }, RequestContext(request))
+
+def post_list(request, id, *args, **kwargs):
+    pass

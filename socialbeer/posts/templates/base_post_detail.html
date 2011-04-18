@@ -1,6 +1,7 @@
 {% load oembed_tags %}
 {% load beersocial %}
 
+{% block post_content %}
 {% oembed %}
 <div id="{{ post.id }}" class="post-item"> 
     {# <a class="comments-link" href="{{ post.get_absolute_url }}/#comments" title="Comments">3</a> #}
@@ -11,12 +12,11 @@
         <a href="{{ embed.url }}" class="fancy" title="{{ embed.title }}"><img width="250" src="{{ embed.url }}" class="attachment-post-thumbnail wp-post-image" alt="Loading...." title="{{ embed.title }}" /></a> 
         {% endfor %}
         <h3>{{ post.content|strip_oembeds|twitterfy }} {# <a href="{{ post.get_absolute_url }}" class="more-link">&#8230; Continue Reading</a> #}</h3>
-        {% if post.tweet_id %}
-            <p class="post-meta">Posted on <a href="{{ post.tweet_url }}">{{ post.pub_date|date:"D d M Y" }}</a> by <a href="{{ post.author_url }}">{{ post.post_author }}</a></p> 
-        {% else %} 
-            <p class="post-meta">Posted on {{ post.pub_date|date:"D d M Y" }} by {{ post.author }}</p> 
-        {% endif %}
+        <p class="post-meta">Posted on <a href="{{ post.get_absolute_url }}">{{ post.pub_date|date:"D d M Y" }}</a> by <a href="{{ post.author_url }}">{{ post.post_author }}</a></p> 
+        {% block post_extra %}{% endblock post_extra %} 
     </div> 
+    {% block post_replies %}{% endblock post_replies %}
 </div>
 {% endoembed %} 
+{% endblock post_content %}
 <!-- post --> 

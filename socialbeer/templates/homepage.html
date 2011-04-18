@@ -4,7 +4,7 @@
 {% block content %}
 
 {% for post in posts.object_list %}
-    {% render_content for post %}
+    {% render_content for post as homepage %}
 {% endfor %}
 
 <div id='paginate'>

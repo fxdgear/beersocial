@@ -43,21 +43,6 @@ def get_random(parser, token):
         raise TemplateSyntaxError, "third argument to get_latest tag must be 'as'"
     return RandomContentNode(bits[1], bits[2], bits[4])
 
-
-class RenderContentNode(Node):
-    def __init__(self, post):
-        try:
-            self.post = Variable(post)
-        except DoesNotExist:
-            raise 
-
-    
-    def render(self, context):
-        post = self.post.resolve(context)
-        t = loader.get_template("post_detail.html")
-        c = Context({"post": post})
-
-        return t.render(c)
      
 class LatestContentNode(Node):
     def __init__(self, model, num, varname):
@@ -81,31 +66,35 @@ def get_latest(parser, token):
     return LatestContentNode(bits[1], bits[2], bits[4])
 
 class RenderContentNode(Node):
-    def __init__(self, post):
+    def __init__(self, post, template):
         try:
             self.post = Variable(post)
+            self.template = "%s_post_detail.html" % template
         except DoesNotExist:
             raise 
 
     
     def render(self, context):
         post = self.post.resolve(context)
-        t = loader.get_template("post_detail.html")
+        t = loader.get_template(self.template)
         c = Context({"post": post})
 
         return t.render(c)
  
 def render_content(parser, token):
     """
-    {% render_content for obj %}
+    {% render_content for obj as <type> %}
     """
 
     bits = token.contents.split()
-    if len(bits) != 3:
-        raise TemplateSyntaxError, "render_content tag takes exactly two arguments"
+    if len(bits) != 5:
+        raise TemplateSyntaxError, "render_content tag takes exactly four arguments"
     if bits[1] != 'for':
         raise TemplateSyntaxError, "first argument to render_content tag must be 'for'"
-    return RenderContentNode(bits[2])
+    if bits[3] != 'as':
+        raise TemplateSyntaxError, "third argument to render_content tag must be 'as'"
+
+    return RenderContentNode(bits[2], bits[4])
 
 
 class CurrentThemeNode(Node):

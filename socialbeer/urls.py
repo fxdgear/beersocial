@@ -18,7 +18,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'socialbeer.posts.views.homepage'),
     (r'^accounts/', include('members.urls')),
-    
+    (r'^posts/', include('posts.urls')),    
 )
 
 urlpatterns = urlpatterns + socialreg_urls + staticfiles_urlpatterns()

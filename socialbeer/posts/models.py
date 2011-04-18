@@ -5,7 +5,7 @@ from socialbeer.beers.models import Beer
 
 class PostManager(models.Manager):
     def published(self):
-        return self.filter(live=True)
+        return self.filter(live=True, retweet=False)
 
 
 class Post(models.Model):
@@ -32,16 +32,21 @@ class Post(models.Model):
         else:
             return "Post: '%s' by %s on %s" % (self.content[:20], self.tweeter_name, self.pub_date)
 
+    @models.permalink
+    def get_absolute_url(self):
+        return ('socialbeer.posts.views.post_detail', (), { 'post_id': self.pk } )
+
+    @property
+    def retweet_count(self):
+        return self.retweets.all().count()
+
     @property
     def tweet_url(self):
         return "http://twitter.com/%s/status/%d" %( self.author.twitter_name, self.tweet_id)
     
     @property
     def post_author(self):
-        if self.author:
-            return self.author
-        else:
-            return self.tweeter_name
+        return self.author.get_profile()
     
     @property
     def author_url(self):
@@ -49,6 +54,10 @@ class Post(models.Model):
             return self.author.get_profile().get_absolute_url()
         else:
             return "http://twitter.com/%s/" % self.author.get_profile()
+    
+    @property
+    def children(self):
+        return Post.objects.filter(parent_post=self, live=True)
 
 
 

@@ -7,7 +7,7 @@
   <h1>There are no posts!</h1>
 {% else %}
   {% for post in profile.all_posts  %}
-    {% render_content for post %}
+    {% render_content for post as homepage %}
   {% endfor %}
 {% endif %}
 {% endblock content %}

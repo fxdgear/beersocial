@@ -1,0 +1,32 @@
+{% extends "base_post_detail.html" %}
+{% load oembed_tags %}
+{% load beersocial %}
+
+{% block post_content %}
+  {{ block.super }}
+
+{% endblock post_content %}
+
+{% block post_extra %}
+  {% if post.retweet_count %}
+    <p clas="post-meta">Reposted by: 
+    {% for retweet in post.retweets.all %}
+      {% if forloop.last %}
+        <a href="{{ retweet.author_url}}">{{ retweet.post_author }}</a>
+      {% else %}
+        <a href="{{ retweet.author_url}}">{{ retweet.post_author }}</a>, 
+      {% endif %}
+    {% endfor %}
+    </p>
+  {% endif %}
+{% endblock post_extra %}
+{% block post_replies %}
+  {% if post.children %}
+    <h1>Replies</h1>
+    <hr>
+    {% for child in post.children %}
+      {% render_content for child as base %}
+    {% endfor %}
+  {% endif %}
+{% endblock post_replies %} 
+<!-- post --> 
