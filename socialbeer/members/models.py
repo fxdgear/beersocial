@@ -85,7 +85,8 @@ class Profile(models.Model):
 
 
 def update_profile( *args, **kwargs):
-    update_twitter_profile.delay()
+    user = kwargs.get('user')
+    update_twitter_profile.delay(user)
  
 # When model instance is saved, trigger creation of corresponding profile
 signals.post_save.connect(create_profile, sender=User)
