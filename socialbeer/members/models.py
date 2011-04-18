@@ -44,11 +44,11 @@ class Profile(models.Model):
     @property
     def full_name(self):
         if self.first_name and self.last_name:
-            return "%s %s" % (self.user.first_name.capitalize, self.user.last_name.capitalize)
+            return "%s %s" % (self.user.first_name.capitalize(), self.user.last_name.capitalize())
         elif self.first_name or self.last_name:
-            return "%s%s" % (self.first_name.capitalize, self.last_name.capitalize)
+            return "%s%s" % (self.first_name.capitalize(), self.last_name.capitalize())
         else:
-            return "%s" % self.user.username.capitalize
+            return "%s" % self.user.username.capitalize()
 
     def __unicode__(self):
         return "%s" % self.user.__unicode__()
