@@ -25,9 +25,24 @@ def process_tweet(status, *args, **kwargs):
         created=False
 
     if created:
+        if status.in_reply_to_status_id:
+            try:
+                obj.parent_post = Post.objects.get(tweet_id=status.in_reply_to_status_id)
+            except:
+                pass
+                
+        if status.retweeted_status:
+            try:
+                retweeted_status = Post.objects.get(tweet_id=status.retweeted_status.id)
+                retweeted_status.retweets.add(obj)
+                retweeted_status.save()
+                obj.retweet = True
+            except:
+                pass
+
         obj.content=expand_urls(status.text)
         obj.pub_date = status.created_at
         obj.save()
-
+    
     return True
     

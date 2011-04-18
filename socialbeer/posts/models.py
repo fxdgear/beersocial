@@ -13,6 +13,9 @@ class Post(models.Model):
     author = models.ForeignKey(User, blank=True, null=True)
     tweet_id = models.BigIntegerField(blank=True, null=True)
     pub_date = models.DateTimeField(blank=True, null=True)
+    parent_post = models.ForeignKey('self', blank=True, null=True)
+    retweets = models.ManyToManyField('self', blank=True, null=True)
+    retweet = models.BooleanField(default=False)
     
     beer = models.ForeignKey(Beer, blank=True, null=True)
 
