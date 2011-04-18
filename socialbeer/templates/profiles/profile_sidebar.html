@@ -43,20 +43,23 @@
             <h1 class="post-title">{{ profile|capfirst }}'s Profile</h1>
             
             <div class="post-thumbnail-side">
-                
+                {% if profile.avatar %}
                 <a href="http://twitter.com/{{ profile.twitter_name }}" title="{{ profile }}'s Twitter Page"><img width="50" height="50" src="{{ profile.avatar }}" class="attachment-sidebar wp-post-image"></a>
+                {% else %}
+                <a href="#" ><img width="50" height="50" src="/site_media/img/gravatar-blank.jpg" class="attachment-sidebar wp-post-image"></a>
+                {% endif %}
             </div>
                         
             <div class="cat-post-content" style="width:280px">
-                <p>
-                  Name: {{ profile.full_name }}</br>
+                <ul>
+                  <li><strong>Name:</strong> {{ profile.full_name }}</li>
                   {% if profile.description %}
-                    Bio: {{ profile.description }}</br>
+                    <li><strong>Bio:</strong> {{ profile.description }}</li>
                   {% endif %}
                   {% if profile.location %}
-                    Location: {{ profile.location }}</br>
+                    <li><strong>Location:</strong> {{ profile.location }}</li>
                   {% endif %}
-                </p>
+                </ul>
  
             </div>
         </div>

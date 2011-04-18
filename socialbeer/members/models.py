@@ -94,7 +94,7 @@ def update_twitter_profile( *args, **kwargs):
     
     if twitter_user:
         profile.user.first_name = twitter_user.name.split(" ")[0]
-        profile.user.last_name = twitter_user.name.split(" ")[1:]
+        profile.user.last_name = " ".join(twitter_user.name.split(" ")[1:])
         profile.user.save()    
 
         profile.website = twitter_user.url    
