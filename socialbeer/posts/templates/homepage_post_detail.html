@@ -1,0 +1,18 @@
+{% extends "base_post_detail.html" %}
+{% load oembed_tags %}
+{% load beersocial %}
+
+{% block post_content %}
+  {{ block.super }}
+
+{% endblock post_content %}
+
+{% block post_extra %}
+  {% if post.retweet_count %}
+    <p clas="post-meta"><strong>{{ post.retweet_count }} {% ifequal post.retweet_count 1 %}Retweet{% else %}Retweets{% endifequal %}</strong></p>
+  {% endif %}
+  {% if post.children %}
+    <p clas="post-meta"><strong>{{ post.children.count }} {% ifequal post.children.count 1 %}Reply{% else %}Replies{% endifequal %}</strong></p>
+  {% endif %}
+{% endblock post_extra %} 
+<!-- post --> 
