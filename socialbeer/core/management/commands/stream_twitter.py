@@ -21,7 +21,7 @@ class Command(BaseCommand):
 class StreamWatcherListener(tweepy.StreamListener):
 
     def on_status(self, status):
-        process_tweet(status)
+        process_tweet.delay(status)
         return True
         
 
